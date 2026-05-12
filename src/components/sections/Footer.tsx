@@ -26,13 +26,24 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Bölgeler</div>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>Ankara · Çankaya · İncek · Gölbaşı</li>
-            <li>Ümitköy · Yaşamkent · Yenimahalle</li>
-            <li>Keçiören · Etimesgut · Mamak · Sincan</li>
-            <li>Antalya ve ilçeleri</li>
-          </ul>
+          <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Hizmet Bölgeleri</div>
+          <div className="mt-4 space-y-4 text-sm">
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--aqua)]">Ankara</div>
+              <p className="mt-1.5 leading-relaxed text-muted-foreground">
+                Çankaya · Çayyolu · Ümitköy · Yaşamkent · Beysukent · Konutkent · Mutlukent · İncek · Gölbaşı · Oran ·
+                Or-An · Kavaklıdere · Gaziosmanpaşa · Bahçelievler · Yenimahalle · Keçiören · Etimesgut · Eryaman ·
+                Pursaklar · Mamak · Sincan · Altındağ · Polatlı · Beypazarı
+              </p>
+            </div>
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--aqua)]">Antalya</div>
+              <p className="mt-1.5 leading-relaxed text-muted-foreground">
+                Konyaaltı · Lara · Muratpaşa · Kepez · Döşemealtı · Aksu · Belek · Kundu · Kemer · Göynük · Tekirova ·
+                Beldibi · Side · Manavgat · Alanya · Kaş · Kalkan · Demre · Finike · Kumluca · Serik
+              </p>
+            </div>
+          </div>
         </div>
         <div>
           <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">İletişim</div>

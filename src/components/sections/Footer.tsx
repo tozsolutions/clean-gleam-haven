@@ -1,4 +1,6 @@
 import logo from "@/assets/brand/logo.png";
+import { Link } from "@tanstack/react-router";
+import { ankaraDistricts, antalyaDistricts } from "@/lib/locations";
 
 export function Footer() {
   return (
@@ -27,21 +29,32 @@ export function Footer() {
         </div>
         <div>
           <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Hizmet Bölgeleri</div>
-          <div className="mt-4 space-y-4 text-sm">
+          <div className="mt-4 space-y-4 text-xs">
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--aqua)]">Ankara</div>
-              <p className="mt-1.5 leading-relaxed text-muted-foreground">
-                Çankaya · Çayyolu · Ümitköy · Yaşamkent · Beysukent · Konutkent · Mutlukent · İncek · Gölbaşı · Oran ·
-                Or-An · Kavaklıdere · Gaziosmanpaşa · Bahçelievler · Yenimahalle · Keçiören · Etimesgut · Eryaman ·
-                Pursaklar · Mamak · Sincan · Altındağ · Polatlı · Beypazarı
-              </p>
+              <ul className="mt-1.5 flex flex-wrap gap-x-2 gap-y-1 leading-relaxed text-muted-foreground">
+                {ankaraDistricts.map((d, i) => (
+                  <li key={d.slug} className="flex items-center gap-2">
+                    <Link to="/bolge/$slug" params={{ slug: d.slug }} className="transition hover:text-[color:var(--aqua)]">
+                      {d.name}
+                    </Link>
+                    {i < ankaraDistricts.length - 1 && <span aria-hidden>·</span>}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--aqua)]">Antalya</div>
-              <p className="mt-1.5 leading-relaxed text-muted-foreground">
-                Konyaaltı · Lara · Muratpaşa · Kepez · Döşemealtı · Aksu · Belek · Kundu · Kemer · Göynük · Tekirova ·
-                Beldibi · Side · Manavgat · Alanya · Kaş · Kalkan · Demre · Finike · Kumluca · Serik
-              </p>
+              <ul className="mt-1.5 flex flex-wrap gap-x-2 gap-y-1 leading-relaxed text-muted-foreground">
+                {antalyaDistricts.map((d, i) => (
+                  <li key={d.slug} className="flex items-center gap-2">
+                    <Link to="/bolge/$slug" params={{ slug: d.slug }} className="transition hover:text-[color:var(--aqua)]">
+                      {d.name}
+                    </Link>
+                    {i < antalyaDistricts.length - 1 && <span aria-hidden>·</span>}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

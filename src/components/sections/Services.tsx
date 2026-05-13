@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 const items = [
   { t: "Pergola / Tente Kumaş Temizliği", d: "Blackout, akrilik ve teknik kumaşlarda kapsamlı leke giderme ve UV koruma." },
   { t: "BioClimatic / RollingRoof", d: "Kanat içleri, su olukları ve mekanizmalarda komple bakım ve hijyen." },
-  { t: "Wintent — Zip Perde Temizliği", d: "Cam yüzey, ray ve fermuar sistemlerinde yüksek basınçlı profesyonel temizlik." },
-  { t: "Kepenk — Panjur Temizliği", d: "Lamel arası tortu, oksit ve nem temizliği; yağlama ve sessizleştirme." },
+  { t: "Wintent — Zip Perde Temizliği", d: "Wintent ve zip perde sistemlerinde kumaş, fermuar, ray ve cam yüzeyde profesyonel derin temizlik." },
+  { t: "Kepenk — Panjur Temizliği", d: "Kepenk ve panjur lamelleri arasındaki tortu, oksit ve nem temizliği; yağlama ve sessizleştirme." },
   { t: "Güneş Panel Temizliği", d: "Verim kaybını önleyen, yüzeye zarar vermeyen iyonize su uygulaması." },
   { t: "Mekanik Sistem Bakımı", d: "Motor, redüktör, sensör ve kumanda kontrolleri, uzun ömür için yıllık servis." },
   { t: "LED Arıza & Renk Değişimi", d: "Samsung LED + plastik kasa modüllerinde arıza tespiti ve renk dönüşümü." },

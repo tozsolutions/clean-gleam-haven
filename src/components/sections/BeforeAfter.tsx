@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { SectionHeader } from "./Services";
 import cankayaBefore from "@/assets/projects/cankaya-before.jpg";
 import cankayaAfter from "@/assets/projects/cankaya-after.jpg";
@@ -9,42 +9,88 @@ import etimesgutAfter from "@/assets/projects/etimesgut-after.jpg";
 import yenimahalleBefore from "@/assets/projects/yenimahalle-before.jpg";
 import yenimahalleAfter from "@/assets/projects/yenimahalle-after.jpg";
 
-const projects = [
+type ServiceTag = "zip" | "pergola" | "bioclimatic" | "rolling";
+
+const projects: Array<{
+  id: string;
+  city: "Ankara" | "Antalya";
+  district: string;
+  location: string;
+  service: string;
+  serviceTag: ServiceTag;
+  desc: string;
+  before: string;
+  after: string;
+}> = [
   {
     id: "cankaya",
+    city: "Ankara",
+    district: "Çankaya",
     location: "Ankara · Çankaya",
     service: "Wintent / Zip Perde Temizliği",
+    serviceTag: "zip",
     desc: "Toz ve UV kalıntısı sebebiyle sararmış zip perde kumaşının ilk günkü tonuna dönüşü.",
     before: cankayaBefore,
     after: cankayaAfter,
   },
   {
     id: "cayyolu",
+    city: "Ankara",
+    district: "Çayyolu",
     location: "Ankara · Çayyolu",
     service: "Pergola Kumaş & Profil Temizliği",
+    serviceTag: "pergola",
     desc: "Profil dipleri, dikiş hatları ve kumaş yüzeyinde tortu giderme; alüminyum profil parlatma.",
     before: cayyoluBefore,
     after: cayyoluAfter,
   },
   {
     id: "etimesgut",
+    city: "Ankara",
+    district: "Etimesgut",
     location: "Ankara · Etimesgut",
     service: "BioClimatic Pergola Restorasyonu",
+    serviceTag: "bioclimatic",
     desc: "Yağmur lekeleri ve oksit izlerinin profesyonel restorasyonla tamamen kaldırılması.",
     before: etimesgutBefore,
     after: etimesgutAfter,
   },
   {
     id: "yenimahalle",
+    city: "Ankara",
+    district: "Yenimahalle",
     location: "Ankara · Yenimahalle",
     service: "RollingRoof Kumaş Temizliği",
+    serviceTag: "rolling",
     desc: "Kafe terası rolling roof sistemde derin kir, hava kirliliği ve nikotin tortusu temizliği.",
     before: yenimahalleBefore,
     after: yenimahalleAfter,
   },
 ];
 
+const serviceFilters: Array<{ id: ServiceTag | "all"; label: string }> = [
+  { id: "all", label: "Tüm Hizmetler" },
+  { id: "pergola", label: "Pergola Kumaş" },
+  { id: "bioclimatic", label: "BioClimatic" },
+  { id: "rolling", label: "RollingRoof" },
+  { id: "zip", label: "Wintent · Zip Perde" },
+];
+
 export function BeforeAfter() {
+  const [service, setService] = useState<ServiceTag | "all">("all");
+  const [district, setDistrict] = useState<string>("all");
+
+  const districts = useMemo(
+    () => Array.from(new Set(projects.map((p) => p.district))),
+    []
+  );
+
+  const filtered = projects.filter(
+    (p) =>
+      (service === "all" || p.serviceTag === service) &&
+      (district === "all" || p.district === district)
+  );
+
   return (
     <section id="once-sonra" className="relative py-24">
       <div className="container mx-auto px-4">
@@ -53,10 +99,51 @@ export function BeforeAfter() {
           title="Gerçek projelerden, gerçek sonuçlar"
           desc="Sürgüyü kaydırın; PergoClean restorasyonunun farkını her projede net görün."
         />
-        <div className="mx-auto mt-14 grid max-w-7xl gap-10 lg:grid-cols-2">
-          {projects.map((p) => (
+
+        <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2">
+            {serviceFilters.map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setService(f.id)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition ${
+                  service === f.id
+                    ? "border-transparent bg-aqua-grad text-white shadow-glow"
+                    : "border-border bg-card text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <label className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+              İlçe
+            </label>
+            <select
+              value={district}
+              onChange={(e) => setDistrict(e.target.value)}
+              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground outline-none focus:border-[color:var(--aqua)]"
+            >
+              <option value="all">Tümü</option>
+              {districts.map((d) => (
+                <option key={d} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-7xl gap-10 lg:grid-cols-2">
+          {filtered.map((p) => (
             <CompareCard key={p.id} {...p} />
           ))}
+          {filtered.length === 0 && (
+            <div className="lg:col-span-2 rounded-3xl border border-dashed border-border bg-card/50 p-12 text-center text-sm text-muted-foreground">
+              Bu kombinasyon için yakında yeni proje eklenecek. Diğer filtreleri deneyin.
+            </div>
+          )}
         </div>
       </div>
     </section>

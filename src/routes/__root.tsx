@@ -73,17 +73,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lovable App" },
-      { name: "description", content: "Bakım • Temizlik • Restorasyon" },
+      { name: "description", content: "Bakım Temizlik Restorasyon
+Pergola | BioClimatic | Tente | Zip Perde" },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Bakım • Temizlik • Restorasyon" },
+      { property: "og:description", content: "Bakım Temizlik Restorasyon
+Pergola | BioClimatic | Tente | Zip Perde" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Bakım • Temizlik • Restorasyon" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/224415e7-9f45-4827-93ed-c3aedda41ca0/id-preview-eadb4f18--604c8873-285c-45e7-85bc-ac6ebdcb03d1.lovable.app-1778665900342.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/224415e7-9f45-4827-93ed-c3aedda41ca0/id-preview-eadb4f18--604c8873-285c-45e7-85bc-ac6ebdcb03d1.lovable.app-1778665900342.png" },
+      { name: "twitter:description", content: "Bakım Temizlik Restorasyon
+Pergola | BioClimatic | Tente | Zip Perde" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/WqL4EZs7u1Wbd9dXfkZ8lRQEZgd2/social-images/social-1778666915486-PergoClean_2026_Logo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/WqL4EZs7u1Wbd9dXfkZ8lRQEZgd2/social-images/social-1778666915486-PergoClean_2026_Logo.webp" },
     ],
     links: [
       {

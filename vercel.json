@@ -1,31 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "env": {
-    "VITE_MANIFEST": "true"
-  },
-  "routes": [
-    {
-      "src": "^/api/(.*)$",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "^/(.*?)\\.js$",
-      "dest": "/$1.js"
-    },
-    {
-      "src": "^/(.*?)\\.css$",
-      "dest": "/$1.css"
-    },
-    {
-      "src": "^/assets/(.*)$",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "framework": "vite"
 }

@@ -98,13 +98,51 @@ export function Hero() {
             className="relative mx-auto hidden lg:block"
           >
             <div className="absolute inset-0 -z-10 rounded-full bg-[color:var(--aqua)] opacity-30 blur-3xl" />
-            <motion.img
-              src={logo}
-              alt="PergoClean su damlası logosu"
-              className="h-[420px] w-[420px] object-contain drop-shadow-[0_30px_60px_rgba(40,90,200,0.55)]"
-              animate={{ y: [0, -14, 0], rotate: [0, 2, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
+            <motion.div
+              className="relative h-[420px] w-[420px] drop-shadow-[0_30px_60px_rgba(40,90,200,0.55)]"
+              animate={{ rotate: [-6, 6, -6] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              style={{ transformOrigin: "50% 90%" }}
+            >
+              <img
+                src={logo}
+                alt="PergoClean sabun logosu"
+                className="absolute inset-0 h-full w-full object-contain"
+              />
+              {/* Sloshing water layer, masked to logo silhouette */}
+              <motion.div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  WebkitMaskImage: `url(${logo})`,
+                  maskImage: `url(${logo})`,
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskSize: "contain",
+                  maskSize: "contain",
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                  mixBlendMode: "overlay",
+                }}
+                animate={{ x: [-18, 18, -18], rotate: [3, -3, 3] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent 38%, color-mix(in oklab, var(--aqua) 55%, transparent) 50%, color-mix(in oklab, var(--deep) 60%, transparent) 100%)",
+                  }}
+                />
+                <div
+                  className="absolute inset-0 opacity-70"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 60%, rgba(255,255,255,0.45), transparent 35%), radial-gradient(circle at 70% 70%, rgba(255,255,255,0.35), transparent 30%)",
+                  }}
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

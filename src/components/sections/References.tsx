@@ -43,7 +43,7 @@ export function References() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
-              className={`group relative overflow-hidden rounded-3xl border border-border bg-card shadow-premium ${
+              className={`hover-glow group relative overflow-hidden rounded-3xl border border-border bg-card shadow-premium ${
                 i === 0 || i === 5 ? "row-span-2" : ""
               } ${i === 4 ? "md:col-span-2" : ""}`}
             >

@@ -1,9 +1,47 @@
 import { SectionHeader } from "./Services";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+import cankaya from "@/assets/references/cankaya-luuq.jpg";
+import incek from "@/assets/references/incek.jpg";
+import resort from "@/assets/references/resort-aerial.jpg";
+import villa from "@/assets/references/villa-pool.jpg";
+import ottoman from "@/assets/references/ottoman.jpg";
 
-const items = [
-  { name: "Ahmet K.", role: "Restaurant Sahibi, Çankaya", text: "Pergola kumaşımız sararmıştı; değiştirmeden yeniden ilk günkü görünüme döndü. Müşterilerimiz fark etti." },
-  { name: "Selin Y.", role: "Villa Sahibi, İncek", text: "BioClimatic sistemimizin kanat içleri ve mekanik aksamı dahil baştan ayağa bakım yaptılar. Çok profesyonel ekip." },
-  { name: "Murat B.", role: "Otel İşletmecisi, Antalya", text: "Sezon öncesi tüm pergolalarımızı gece çalışmasıyla teslim ettiler. İşletmemiz hiç aksamadı." },
+const testimonials = [
+  {
+    name: "Ahmet K.",
+    designation: "Restaurant Sahibi, Çankaya",
+    quote:
+      "Pergola kumaşımız sararmıştı; değiştirmeden yeniden ilk günkü görünüme döndü. Müşterilerimiz fark etti.",
+    src: cankaya,
+  },
+  {
+    name: "Selin Y.",
+    designation: "Villa Sahibi, İncek",
+    quote:
+      "BioClimatic sistemimizin kanat içleri ve mekanik aksamı dahil baştan ayağa bakım yaptılar. Çok profesyonel ekip.",
+    src: incek,
+  },
+  {
+    name: "Murat B.",
+    designation: "Otel İşletmecisi, Antalya",
+    quote:
+      "Sezon öncesi tüm pergolalarımızı gece çalışmasıyla teslim ettiler. İşletmemiz hiç aksamadı.",
+    src: resort,
+  },
+  {
+    name: "Elif D.",
+    designation: "Villa Sahibi, Çayyolu",
+    quote:
+      "Wintent zip perdelerimizi yenisi gibi yaptılar. Ekip çok titiz ve zamanında teslim etti.",
+    src: villa,
+  },
+  {
+    name: "Cem A.",
+    designation: "Cafe Sahibi, Ümitköy",
+    quote:
+      "Pergola ve panjurlarımıza profesyonel bakım. Fiyat-performans olarak en doğru tercih.",
+    src: ottoman,
+  },
 ];
 
 export function Testimonials() {
@@ -11,24 +49,24 @@ export function Testimonials() {
     <section className="py-24">
       <div className="container mx-auto px-4">
         <SectionHeader eyebrow="Müşteri Yorumları" title="Premium markaların tercihi" />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {items.map((t) => (
-            <article key={t.name} className="rounded-3xl border border-border bg-card p-7 shadow-premium">
-              <div className="flex gap-1 text-[color:var(--champagne)]">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.text}”</p>
-              <div className="mt-6 border-t border-border pt-4">
-                <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
-              </div>
-            </article>
-          ))}
+
+        <div className="mt-14">
+          <CircularTestimonials
+            testimonials={testimonials}
+            autoplay
+            colors={{
+              name: "oklch(0.18 0.04 255)",
+              designation: "oklch(0.45 0.04 255)",
+              testimony: "oklch(0.28 0.04 255)",
+              arrowBackground: "oklch(0.32 0.13 252)",
+              arrowForeground: "#ffffff",
+              arrowHoverBackground: "oklch(0.72 0.16 235)",
+            }}
+            fontSizes={{ name: "1.5rem", designation: "0.95rem", quote: "1.1rem" }}
+          />
         </div>
 
-        <div className="mx-auto mt-12 max-w-2xl rounded-3xl bg-aqua-grad p-1 shadow-premium">
+        <div className="mx-auto mt-16 max-w-2xl rounded-3xl bg-aqua-grad p-1 shadow-premium hover-glow">
           <a
             href="https://www.google.com/search?q=PergoClean+Ankara"
             target="_blank"

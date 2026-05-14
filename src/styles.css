@@ -134,25 +134,42 @@
 }
 
 @keyframes float-up {
-  0% { transform: translateY(0) scale(0.6); opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+  0%   { transform: translate3d(0, 0, 0) scale(0.7); opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { transform: translate3d(0, -100vh, 0) scale(1); opacity: 1; }
+  94%  { transform: translate3d(0, -106vh, 0) scale(1.35); opacity: 0.6; }
+  97%  { transform: translate3d(0, -107vh, 0) scale(0.2); opacity: 0; }
+  100% { transform: translate3d(0, -107vh, 0) scale(0); opacity: 0; }
+}
+
+@keyframes bubble-sway {
+  0%, 100% { margin-left: 0; }
+  50%      { margin-left: var(--sway, 12px); }
 }
 
 .bubble {
   position: fixed;
-  bottom: -40px;
+  bottom: -60px;
   left: var(--x, 5%);
   width: var(--s, 22px);
   height: var(--s, 22px);
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(180,220,255,0.55) 45%, rgba(80,150,230,0.25) 70%, transparent 75%);
-  box-shadow: inset -2px -3px 6px rgba(255,255,255,0.4), 0 0 8px rgba(120,180,255,0.4);
+  background:
+    radial-gradient(circle at 28% 26%, rgba(255,255,255,0.98), rgba(255,255,255,0.55) 18%, transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.35), transparent 28%),
+    radial-gradient(circle at 50% 55%, rgba(170,215,255,0.55), rgba(80,150,230,0.45) 55%, rgba(40,90,200,0.35) 75%, transparent 82%);
+  box-shadow:
+    inset -3px -5px 10px rgba(255,255,255,0.55),
+    inset 2px 3px 6px rgba(120,180,255,0.35),
+    0 0 14px rgba(120,180,255,0.55),
+    0 0 2px rgba(255,255,255,0.6);
   pointer-events: none;
-  animation: float-up var(--d, 12s) linear infinite;
-  animation-delay: var(--delay, 0s);
+  animation:
+    float-up var(--d, 12s) cubic-bezier(0.45, 0, 0.55, 1) infinite,
+    bubble-sway calc(var(--d, 12s) / 4) ease-in-out infinite;
+  animation-delay: var(--delay, 0s), var(--delay, 0s);
   z-index: 1;
+  will-change: transform, opacity;
 }
 
 @keyframes pulse-ring {

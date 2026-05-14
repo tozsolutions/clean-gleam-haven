@@ -28,7 +28,7 @@ export function Services() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-premium transition"
+              className="hover-glow group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-premium transition"
             >
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-aqua-grad opacity-0 blur-3xl transition group-hover:opacity-30" />
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-aqua-grad text-white shadow-glow">

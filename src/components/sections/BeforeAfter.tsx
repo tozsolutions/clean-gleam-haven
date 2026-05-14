@@ -173,7 +173,7 @@ function CompareCard({
     setPct(Math.max(2, Math.min(98, p)));
   };
   return (
-    <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-premium">
+    <article className="hover-glow overflow-hidden rounded-3xl border border-border bg-card shadow-premium">
       <div
         ref={ref}
         className="relative aspect-[4/5] w-full select-none overflow-hidden md:aspect-[16/11]"

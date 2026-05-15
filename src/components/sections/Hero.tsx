@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import logo from "@/assets/brand/logo.png";
 import bg from "@/assets/brand/pergola-night.jpg";
+import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
 export function Hero() {
   return (
@@ -143,6 +144,28 @@ export function Hero() {
                 />
               </motion.div>
             </motion.div>
+
+            <div className="mt-8 text-center text-base font-semibold text-white/90 md:text-lg">
+              <span>Profesyonel </span>
+              <span className="inline-flex items-baseline">
+                <span className="text-white/70">(</span>
+                <AnimatedTextCycle
+                  words={[
+                    "Pergola",
+                    "Tente",
+                    "BioClimatic",
+                    "RollingRoof",
+                    "Zip Perde",
+                    "Wintent",
+                    "Güneş Paneli",
+                    "Panjur ve Kepenk",
+                  ]}
+                  className="text-shine"
+                />
+                <span className="text-white/70">)</span>
+              </span>
+              <span> Temizlik</span>
+            </div>
           </motion.div>
         </div>
       </div>

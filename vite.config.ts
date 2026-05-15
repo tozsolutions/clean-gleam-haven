@@ -4,7 +4,4 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "src/server.ts" },
   },
-  ssr: {
-    external: ["node:buffer", "node:util"],
-  },
 });

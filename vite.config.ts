@@ -1,7 +1,9 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig, type LovableViteTanstackOptions } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig({
+const options: LovableViteTanstackOptions = {
   tanstackStart: {
     server: { entry: "src/server.ts" },
   },
-});
+};
+
+export default defineConfig(options);
